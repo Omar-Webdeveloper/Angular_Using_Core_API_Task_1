@@ -9,6 +9,30 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 builder.Services.AddScoped<IDataServicee, DataServicee>();
 
+
+
+
+
+//CORS
+builder.Services.AddCors(
+
+    options => options.AddPolicy(
+        "Develop", options =>
+        {
+            options.AllowAnyHeader();
+            options.AllowAnyMethod();
+            options.AllowAnyOrigin();
+        }
+
+        )
+   );
+
+
+
+
+
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -33,6 +57,16 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+
+// CORS
+app.UseCors("Develop");
+
+
+
+
+
 
 app.MapFallbackToFile("/index.html");
 

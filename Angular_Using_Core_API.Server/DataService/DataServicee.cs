@@ -173,7 +173,7 @@ namespace Angular_Using_Core_API.Server.DataService
             if (UpdateProduct != null)
             {
                 UpdateProduct.ProductName = ProductData.ProductName;
-                UpdateProduct.ProductName = ProductData.ProductDesc;
+                UpdateProduct.ProductDesc = ProductData.ProductDesc;
                 _context.SaveChanges();
                 return true;
             }
