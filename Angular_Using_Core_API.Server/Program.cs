@@ -1,3 +1,5 @@
+using Angular_Using_Core_API.Server.DataService;
+using Angular_Using_Core_API.Server.IDataService;
 using Angular_Using_Core_API.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+builder.Services.AddScoped<IDataServicee, DataServicee>();
 
 // Add services to the container.
 

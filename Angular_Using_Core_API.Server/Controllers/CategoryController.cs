@@ -48,6 +48,7 @@ namespace Angular_Using_Core_API.Server.Controllers
             }
             return Ok(category);
         }
+       
 
     }
 }
