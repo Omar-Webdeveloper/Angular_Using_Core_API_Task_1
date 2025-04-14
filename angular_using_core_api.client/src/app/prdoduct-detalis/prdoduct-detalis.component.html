@@ -1,0 +1,21 @@
+<table class="table-info">
+  <caption>Product</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Desc</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="Product">
+      <td>{{Product.productId}}</td>
+      <td>{{Product.productName}}</td>
+      <td>{{Product.productDesc}}</td>
+
+    </tr>
+
+  </tbody>
+</table>

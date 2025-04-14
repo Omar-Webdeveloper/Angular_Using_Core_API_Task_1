@@ -18,7 +18,10 @@ namespace Angular_Using_Core_API.Server.Controllers
         {
             _data = data;
         }
-        [HttpGet("AllCategories")]
+        //[HttpGet("Get_Method-All-Categories")]
+        [HttpGet]
+
+        [Route("All-Categories")]
         public IActionResult Get_Category()
         {
             var categories = _data.getCategories();

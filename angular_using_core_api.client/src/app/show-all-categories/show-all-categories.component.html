@@ -1,0 +1,26 @@
+<table class="table-info">
+  <caption>List of Categories</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Desc</th>
+      <th scope="col">More info</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Category of Categories">
+      <td>{{Category.categoryId}}</td>
+      <td>{{Category.categoryName}}</td>
+      <td>{{Category.categoryDesc}}</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>mdo</td>
+      <td>Mark</td>
+    </tr>
+
+  </tbody>
+</table>

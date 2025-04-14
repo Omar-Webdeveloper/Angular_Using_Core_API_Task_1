@@ -1,0 +1,25 @@
+<table class="table-info">
+  <caption>List of Categories</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Desc</th>
+      <th scope="col">More info</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of Products">
+      <td>{{product.productId}}</td>
+  <td>{{product.productName}}</td>
+  <td>{{product.productDesc}}</td>
+      <td><a routerLink="/ProductDetalis/{{product.productId}}">Detail</a></td>
+      <td><a routerLink="/EditPrdoduct/{{product.productId}}">Edit</a><</td>
+      <td><a routerLink="/DeletePrdoduct/{{product.productId}}">Delete</a><</td>
+    </tr>
+
+  </tbody>
+</table>
