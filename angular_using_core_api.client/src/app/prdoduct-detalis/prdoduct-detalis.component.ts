@@ -21,17 +21,20 @@ export class PrdoductDetalisComponent {
   }
   id:any
   My_Product() {
-    this.id = this._route.snapshot.paramMap.get('id'); // Access 'id' from route parameters
-    if (this.id) { // Check if 'id' exists to prevent potential errors
-      this._Service.Get_ProductsBasedOnID(this.id).subscribe(
-        (data: any) => {
-          this.Product = data; // Assign the fetched data to the Product property
-          console.log(this.Product); // Log the product data
+    this.id = this._route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this._Service.Get_ProductsBasedOnID(this.id).subscribe({
+        next: (data: any) => {
+          this.Product = data;
+          console.log(this.Product);
         },
-        (error: any) => {
-          console.error('Error fetching product details:', error); // Handle errors gracefully
+        error: (error: any) => {
+          console.error('Error fetching product details:', error);
+        },
+        complete: () => {
+          console.log('Product fetch request completed successfully.');
         }
-      );
+      });
     } else {
       console.error('No product ID found in the route!');
     }

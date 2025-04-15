@@ -186,5 +186,64 @@ namespace Angular_Using_Core_API.Server.DataService
 
 
 
+
+
+        public List<User> Get_Users()
+        {
+            var users = _context.Users.ToList();
+            return users;
+        }
+        public User AddUser([FromForm] UserDTOs userDto)
+        {
+            // Create a new User object based on the received DTO
+            var user = new User
+            {
+                FullName = userDto.FullName ?? "NoName", // Maps from DTO to the User entity
+                Email = userDto.Email,      // Maps from DTO to the User entity
+                PasswordHashed = userDto.PasswordHashed ?? "NoPassword" // Maps from DTO to the User entity
+            };
+
+            // Add the new user to the database
+            _context.Users.Add(user);
+
+            // Save changes to persist the new user
+            _context.SaveChanges();
+
+            // Return the newly added user
+            return user;
+        }
+
+        public User Get_User_BasedOnEmailAndPassword(string Email, string password) 
+        { 
+          var user = _context.Users.FirstOrDefault(x => x.Email == Email && x.PasswordHashed == password);
+            if (user == null)
+            {
+                return null;
+            }
+            return user;
+        }
+
+
+
+
+
+
+
+        public User Get_All_Users(string Email, string password)
+        {
+            var user = _context.Users.FirstOrDefault(user => user.Email == Email && user.PasswordHashed == password);
+            if ( user == null)
+            {
+                return null;
+            }
+            else
+            {
+                return user;
+            }
+        }
+
+
+
+
     }
 }

@@ -23,6 +23,22 @@ namespace Angular_Using_Core_API.Server.IDataService
         public bool EditProduct(int id, [FromBody] ProductDTOs productData);
 
 
+
+        public List<User> Get_Users();
+        public User AddUser([FromForm] UserDTOs userDto);
+        public User Get_User_BasedOnEmailAndPassword(string Email, string password);
+
+
+
+
+
+
+
+
+
+        public User Get_All_Users(string Email, string password);
+
+
     }
 }
 

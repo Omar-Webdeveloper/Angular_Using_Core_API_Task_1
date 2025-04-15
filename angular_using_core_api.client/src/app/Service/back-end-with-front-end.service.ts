@@ -27,4 +27,8 @@ export class BackEndWithFrontEndService {
   Post_Product(data: any) {
     return this.Http.post("https://localhost:7148/api/ProductControllerUsingTierArchitecture/AddNewProduct", data);
   }
+  Get_Users() {
+    return this.Http.get("https://localhost:7148/api/UserControllerUsingTierArchitecture/AllUsers");
+  }
+
 }
